@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/megamenu.js' %}"></script>
+</head>
+<body>
+    <div class="menu-container">
+        <div class="menu">
+            {% load mptt_tags %}
+            <ul>
+            {% recursetree menu %}
+                <li>
+                    <a href="{{ node.get_absolute_url }}">{{ node.name }}</a>
+                    {% if not node.is_leaf_node %}
+                        <ul class="children">
+                            {{ children }}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endrecursetree %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
