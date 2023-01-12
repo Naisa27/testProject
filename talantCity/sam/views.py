@@ -7,4 +7,4 @@ def home(request):
 
 
 def get_menu(request, slug):
-    pass
+    print(slug)
