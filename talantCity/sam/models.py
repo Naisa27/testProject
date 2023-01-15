@@ -18,3 +18,13 @@ class Menu(MPTTModel):
     class MPTTMeta:
         level_attr = 'mptt_level'
         order_insertion_by = ['sort', 'name']
+
+
+
+class Article(models.Model):
+    name = models.CharField(max_length=255)
+    content = models.TextField()
+    menuPoint = TreeForeignKey(Menu, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.name

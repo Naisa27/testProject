@@ -7,4 +7,6 @@ def home(request):
 
 
 def get_menu(request, slug):
-    print(slug)
+    menuPoint = Menu.objects.get(slug=slug)
+
+    return render(request, "sam/menuPoint.html", {"menuPoint": menuPoint, 'menu': Menu.objects.all()})
