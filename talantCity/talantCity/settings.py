@@ -49,6 +49,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'sam.middleware.test_middleware',
+    'sam.middleware.getMenu',
 ]
 
 ROOT_URLCONF = 'talantCity.urls'

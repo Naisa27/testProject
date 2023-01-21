@@ -5,7 +5,9 @@
                 <div class="menu">
                     {% load mptt_tags %}
                     <ul>
-                    {% recursetree menu %}
+                        <li><a href="{% url 'home' %}">Главная</a></li>
+                        {% if request.menu %}
+                        {% recursetree request.menu %}
                         <li>
                             <a href="{{ node.get_absolute_url }}">{{ node.name }}</a>
                             {% if not node.is_leaf_node %}
@@ -14,7 +16,8 @@
                                 </ul>
                             {% endif %}
                         </li>
-                    {% endrecursetree %}
+                        {% endrecursetree %}
+                        {% endif %}
                     </ul>
                 </div>
             </div>
